@@ -49,3 +49,27 @@ a {
 body {
   background-color: yellow;
 }
+
+/* .dr {
+  animation: rotate 2s linear infinite; 
+}
+
+.dr:hover {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+      transform:rotate(0deg);
+  }
+  to {
+      transform:rotate(360deg);
+  }
+} */
+
+.spin {
+  transition: transform 5s ease-in-out;
+}
+.spin:hover {
+  transform: rotate(14400deg);
+}
