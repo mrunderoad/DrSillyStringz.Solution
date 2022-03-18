@@ -8,7 +8,8 @@
 <hr />
 <div class="row">
   <div class="card">
-    <h2>All Engineers:</h2>
+     <button class="btn-info">@Html.ActionLink("Add New Engineer", "Create", "Engineers")</button>
+    <h2>@Html.ActionLink("All Engineers:", "Index", "Engineers")</h2>
     @if (@ViewBag.Engineers.Count == 0)
     {
       <h3>No Engineers avaliable.</h3>
@@ -22,7 +23,8 @@
     }
   </div>
   <div class="card">
-    <h2>All Machines:</h2>
+    <button class="btn-info">@Html.ActionLink("Add New Machine", "Create", "Machines")</button>
+    <h2>@Html.ActionLink("All Machines:", "Index", "Machines")</h2>
     @if (@ViewBag.Machines.Count == 0)
     {
       <h3>No Machines avaliable.</h3>
@@ -33,6 +35,7 @@
       {
         <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId })</li>
       }
+      
     }
   </div>
 </div>

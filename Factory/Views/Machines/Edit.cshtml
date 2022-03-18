@@ -14,5 +14,8 @@
   @Html.Label("Edit Machine Name:")
   @Html.EditorFor(model => model.Name)
   <br>
+  @Html.Label("Mark Machine as Fixed")
+  @Html.CheckBoxFor(model => model.Fixed)
+  <br>
   <input type="submit" value="Update Machine" />
 }

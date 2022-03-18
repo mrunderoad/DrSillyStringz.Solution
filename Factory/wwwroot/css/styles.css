@@ -6,9 +6,37 @@ div#header {
   color:#CCC;
   background:rgb(255, 2, 179);
   padding:8px;
+  text-align: center;
+}
+
+.jumbotron {
+  text-align: center;
+  padding: 8px;
 }
 
 a {
   color: rgb(0, 0, 0);
   text-shadow: 1px 1px 1px white;
 } 
+
+.card {
+  width: 50%;
+  text-align: center;
+  list-style-position: inside;
+  padding: 5px;
+  background: rgba(128, 128, 128, 0.658);
+}
+
+.btn-info {
+  width: 13vw;
+  margin-left: 12vw;
+}
+
+.deletebtn {
+  margin-left: 3px;
+}
+
+.tc {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
