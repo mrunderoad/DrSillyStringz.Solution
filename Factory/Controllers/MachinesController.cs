@@ -98,5 +98,23 @@ namespace Factory.Controllers
       }
       return RedirectToAction("Index");
     }
+
+    public ActionResult AddLocation(int id)
+    {
+      var thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      ViewBag.LocationId = new SelectList(_db.Locations, "LocationId", "Name");
+      return View(thisMachine);
+    }
+
+    [HttpPost]
+    public ActionResult AddLocation(Machine machine, int LocationId)
+    {
+      if (LocationId != 0)
+      {
+        _db.MachineLocation.Add(new MachineLocation() { LocationId = LocationId, MachineId = machine.MachineId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
   }
 }

@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<div class="jumbotron">
+  <h1>Assign Machine to Location here</h1>
+</div>
+<hr />
+<h3>Assign @Html.DisplayFor(model => model.Name) to a Location:</h3>
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+  @Html.Label("Choose Location:")
+  @Html.DropDownList("LocationId")
+  <br>
+  <input type="submit" value="Add to Location" />
+}
