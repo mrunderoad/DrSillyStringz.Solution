@@ -7,3 +7,7 @@ div#header {
   background:rgb(255, 2, 179);
   padding:8px;
 }
+
+a {
+  color: red;
+}
