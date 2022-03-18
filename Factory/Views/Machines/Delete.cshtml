@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<div class="jumbotron">
+  <h1>Delete @Html.DisplayFor(model => model.Name)?</h1>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Yes" />
+}
+<button class="btn-success">@Html.ActionLink("No", "Index")</button>

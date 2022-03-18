@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+
+<div class="jumbotron">
+  <h1>Avaliable Machines</h1>
+</div>
+<hr />
+@if (@Model.Count == 0)
+{
+  <h3>No Machines at Dr.Sillystringz Factory yet!</h3>
+}
+<ul>
+  @foreach(Machine machine in Model)
+  {
+    <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })</li>
+  }
+</ul>
+<button class="btn-success">@Html.ActionLink("Add New Machine", "Create")</button>

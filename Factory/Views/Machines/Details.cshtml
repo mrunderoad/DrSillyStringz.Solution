@@ -1,0 +1,27 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<div class="jumbotron">
+  <h1>Details for @Html.DisplayFor(model => model.Name)</h1>
+</div>
+<hr />
+@if (@Model.JoinEntities.Count == 0)
+{
+  <h3>This Machine doesn't have any Engineers assigned to it.</h3>
+}
+else 
+{
+  <h3>@Html.DisplayFor(model => model.Name) has @Html.DisplayFor(model => model.JoinEntities.Count) Engineers assigned.</h3>
+  <ul>
+    @foreach(var join in Model.JoinEntities)
+    {
+      <li>@Html.ActionLink(@join.Engineer.Name, "Details", "Engineers", new { id = join.Engineer.EngineerId })</li>
+    }
+  </ul>
+}
+<hr />
+<button class="btn-success">@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</button>
+<button class="btn-success">@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
