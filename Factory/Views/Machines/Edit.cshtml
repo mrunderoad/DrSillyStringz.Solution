@@ -12,10 +12,10 @@
 {
   @Html.HiddenFor(model => model.MachineId)
   @Html.Label("Edit Machine Name:")
-  @Html.EditorFor(model => model.Name)
+  @Html.EditorFor(model => model.Name, new { required = "required" })
   <br>
   @Html.Label("Edit Machine Service Date:")
-  @Html.EditorFor(model => model.Date, new { type = "date" })
+  @Html.EditorFor(model => model.Date, new { type = "date", required = "required" })
   <br>
   @Html.Label("Mark Machine as Fixed")
   @Html.CheckBoxFor(model => model.Fixed)

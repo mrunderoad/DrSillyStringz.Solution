@@ -13,9 +13,9 @@
   <h3>No Machines at Dr.Sillystringz Factory yet!</h3>
 }
 <ul>
+  <h5>--Name-----|-----Fixed--</h5>
   @foreach(Machine machine in Model)
   {
-    <h5>--Name-----|-----Fixed--</h5>
     <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })  @Html.CheckBoxFor(Model => machine.Fixed, new { @disabled = "disabled" })</li>
   }
 </ul>
