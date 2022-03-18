@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Location
+
+<div class="jumbotron">
+  <h1>Edit @Html.DisplayFor(model => model.Name)</h1>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.LocationId)
+  @Html.Label("Update Location Name:")
+  @Html.EditorFor(model => model.Name)
+  <br>
+  <input type="submit" value="Update Location" />
+}

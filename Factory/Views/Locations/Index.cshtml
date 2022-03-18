@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models
+
+<div class="jumbotron">
+  <h1>Locations</h1>
+</div>
+<hr />
+@if (@Model.Count == 0)
+{
+  <h3>There are no Locations, this is a remote machine fixing job!</h3>
+}
+<ul>
+  @foreach(Location location in Model)
+  {
+    <li>@Html.ActionLink($"{location.Name}", "Details", new { id = location.LocationId })</li>
+  }
+</ul>
+<hr />
+<button class="btn">@Html.ActionLink("Add New Location", "Create")</button>

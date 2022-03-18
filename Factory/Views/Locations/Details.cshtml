@@ -1,0 +1,48 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Location
+
+<div class="jumbotron">
+  <h1>Details for @Html.DisplayFor(model => model.Name):</h1>
+</div>
+<hr />
+<h3>Location Name:</h3>
+<p>@Html.DisplayFor(model => model.Name)</p>
+<hr />
+@if (@Model.JoinEntities1.Count == 0)
+{
+  <h3>Currently no Engineers at @Html.DisplayFor(model => model.Name).</h3>
+}
+else
+{
+  <h3>Engineers at @Html.DisplayFor(model => model.Name):</h3>
+  <ul>
+    @foreach (var EngineerLocation in @Model.JoinEntities1)
+    {
+      <li>@Html.ActionLink(@EngineerLocation.Engineer.Name, "Details", "Engineers", new { id = EngineerLocation.Engineer.EngineerId })</li>
+    }
+  </ul>
+}
+<hr />
+<h3>Machines at @Html.DisplayFor(model => model.Name):</h3>
+@if (@Model.JoinEntities2.Count == 0)
+{
+  <h3>Currently no Machines at @Html.DisplayFor(model => model.Name).</h3>
+}
+else
+{
+  <h3>Machines at @Html.DisplayFor(model => model.Name):</h3>
+  <ul>
+    @foreach (var MachineLocation in @Model.JoinEntities2)
+    {
+      <li>@Html.ActionLink(@MachineLocation.Machine.Name, "Details", "Machiness", new { id = MachineLocation.Machine.MachineId })</li>
+    }
+  </ul>
+}
+<hr />
+<button class="btn">@Html.ActionLink("Edit Location", "Edit", new { id = Model.LocationId })</button>
+<button class="btn">@Html.ActionLink("Delete Location", "Delete", new { id = Model.LocationId })</button>
+<button class="btn">@Html.ActionLink("Add Engineer to Location", "AddEngineer", "Locations", new { id = Model.LocationId })</button>
+<button class="btn">@Html.ActionLink("Add Machine to Location", "AddMachine", "Locations", new { id = Model.LocationId })</button>

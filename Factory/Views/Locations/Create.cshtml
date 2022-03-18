@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Location
+
+<div class="jumbotron">
+  <h1>Create new Location</h1>
+</div>
+<hr />
+@using (Html.BeginForm())
+{
+  @Html.Label("Location Name:")
+  @Html.TextBoxFor(model => model.Name, new { required = "required" })
+  <br>
+  <input type="submit" value="Add Machine" />
+}
