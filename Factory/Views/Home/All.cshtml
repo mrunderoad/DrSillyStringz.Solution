@@ -1,0 +1,38 @@
+@{
+  Layout = "_Layout";
+}
+
+<div class="jumbotron">
+  <h1>All Engineers and Machines</h1>
+</div>
+<hr />
+<div class="row">
+  <div class="card">
+    <h2>All Engineers:</h2>
+    @if (@ViewBag.Engineers.Count == 0)
+    {
+      <h3>No Engineers avaliable.</h3>
+    }
+    else
+    {
+      @foreach (var engineer in ViewBag.Engineers)
+      {
+        <li>@Html.ActionLink($"{engineer.Name}", "Details", "Engineers", new { id = engineer.EngineerId })</li>
+      }
+    }
+  </div>
+  <div class="card">
+    <h2>All Machines:</h2>
+    @if (@ViewBag.Machines.Count == 0)
+    {
+      <h3>No Machines avaliable.</h3>
+    }
+    else
+    {
+      @foreach(var machine in ViewBag.Machines)
+      {
+        <li>@Html.ActionLink($"{machine.Name}", "Details", "Machines", new { id = machine.MachineId })</li>
+      }
+    }
+  </div>
+</div>

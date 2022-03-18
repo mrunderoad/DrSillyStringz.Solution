@@ -21,11 +21,6 @@ namespace Factory.Controllers
       return View(model);
     }
 
-    public ActionResult All()
-    {
-      return View();
-    }
-
     public ActionResult Create()
     {
       return View();

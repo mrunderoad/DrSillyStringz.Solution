@@ -11,7 +11,6 @@
 <h3>Name:</h3>
 <p>@Html.DisplayFor(model => model.Name)</p>
 <hr />
-<h2>Machines @Html.DisplayFor(model => model.Name) is assigned to:</h2>
 @if (@Model.JoinEntities.Count == 0)
 {
   <h3>@Html.DisplayFor(model => model.Name) is not assigned to any Machines.</h3>
@@ -27,6 +26,12 @@ else
   </ul>
 }
 <hr />
+@if (@Model.JoinEntities.Count == 0)
+{
+  <h3>No Machines to delete @Html.DisplayFor(model => model.Name) from.</h3>
+}
+else
+{
 <h3>Delete @Html.DisplayFor(model => model.Name) from: </h3>
 <ul>
   @foreach (var join in Model.JoinEntities)
@@ -38,6 +43,7 @@ else
     }
   }
 </ul>
+}
 <hr />
 <button class="btn-secondary">@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</button>
 <button class="btn-secondary">@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</button>
