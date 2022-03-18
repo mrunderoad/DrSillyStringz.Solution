@@ -15,8 +15,8 @@
 <ul>
   @foreach(Machine machine in Model)
   {
-    <h5>--Name-----|-----Repaired--</h5>
+    <h5>--Name-----|-----Fixed--</h5>
     <li>@Html.ActionLink($"{machine.Name}", "Details", new { id = machine.MachineId })  @Html.CheckBoxFor(Model => machine.Fixed, new { @disabled = "disabled" })</li>
   }
 </ul>
-<button class="btn-secondary">@Html.ActionLink("Add New Machine", "Create")</button>
+<button class="btn">@Html.ActionLink("Add New Machine", "Create")</button>

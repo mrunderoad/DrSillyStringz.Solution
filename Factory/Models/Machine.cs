@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace Factory.Models
 {
@@ -12,6 +13,7 @@ namespace Factory.Models
     public int MachineId { get; set; }
     public string Name { get; set; }
     public bool Fixed { get; set; }
+    public DateTime Date { get; set; }
     public virtual ICollection<EngineerMachine> JoinEntities { get; set; }
   }
 }
