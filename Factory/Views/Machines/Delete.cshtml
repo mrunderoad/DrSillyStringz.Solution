@@ -8,8 +8,10 @@
   <h1>Delete @Html.DisplayFor(model => model.Name)?</h1>
 </div>
 <hr />
-@using (Html.BeginForm())
-{
-  <input type="submit" value="Yes" />
-}
-<button class="btn">@Html.ActionLink("No", "Index")</button>
+<div class="row form">
+  @using (Html.BeginForm())
+  {
+    <button class="btn-success" type="submit">Yes</button>
+  }
+  <button class="btn-danger">@Html.ActionLink("No", "Index")</button>
+</div>

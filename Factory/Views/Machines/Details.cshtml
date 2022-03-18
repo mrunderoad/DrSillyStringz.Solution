@@ -7,17 +7,18 @@
 <div class="jumbotron">
   <h1>Details for @Html.DisplayFor(model => model.Name)</h1>
 </div>
-<h3>Next Machine Service Date:</h3>
-<p>@Html.DisplayFor(model => model.Date.Month)/@Html.DisplayFor(model => model.Date.Day)/@Html.DisplayFor(model => model.Date.Year)</p>
 <hr />
 @if (@Model.Fixed == false)
 {
-  <h3>This machine is currently broken!</h3>
+  <h3>@Html.DisplayFor(model => model.Name) is currently broken!</h3>
 }
 else
 {
-  <h3>This machine is currently working!</h3>
+  <h3>@Html.DisplayFor(model => model.Name) is currently working!</h3>
 }
+<hr />
+<h3>Next Machine Service Date:</h3>
+<p>@Html.DisplayFor(model => model.Date.Month)/@Html.DisplayFor(model => model.Date.Day)/@Html.DisplayFor(model => model.Date.Year)</p>
 <hr />
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -48,7 +49,7 @@ else
     @using (Html.BeginForm("DeleteEngineer", "Machines"))
     {
       @Html.Hidden("joinId", @join.EngineerMachineId)
-      <input class="deletebtn" type="submit" value="@join.Engineer.Name" />
+      <button class="btn" type="submit">@join.Engineer.Name</button>
     }
   }
   </div>
