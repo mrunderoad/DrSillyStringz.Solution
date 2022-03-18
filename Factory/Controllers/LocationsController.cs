@@ -76,5 +76,59 @@ namespace Factory.Controllers
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddMachine(int id)
+    {
+      var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      return View(thisLocation);
+    }
+
+    [HttpPost]
+    public ActionResult AddMachine(Location location, int MachineId)
+    {
+      if (MachineId != 0)
+      {
+        _db.MachineLocation.Add(new MachineLocation() { MachineId = MachineId, LocationId = location.LocationId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteMachine(int joinId)
+    {
+      var joinEntry = _db.MachineLocation.FirstOrDefault(joinEntry => joinEntry.MachineLocationId == joinId);
+      _db.MachineLocation.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult AddEngineer(int id)
+    {
+      var thisLocation = _db.Locations.FirstOrDefault(location => location.LocationId == id);
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View(thisLocation);
+    }
+
+    [HttpPost]
+    public ActionResult AddEngineer(Location location, int EngineerId)
+    {
+      if (EngineerId != 0)
+      {
+        _db.EngineerLocation.Add(new EngineerLocation() { EngineerId = EngineerId, LocationId = location.LocationId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult DeleteEngineer(int joinId)
+    {
+      var joinEntry = _db.EngineerLocation.FirstOrDefault(joinEntry => joinEntry.EngineerLocationId == joinId);
+      _db.EngineerLocation.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
   }
 }

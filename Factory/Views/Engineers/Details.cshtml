@@ -34,7 +34,7 @@ else
 }
 else
 {
-<h3>Delete @Html.DisplayFor(model => model.Name) from: </h3>
+<h3>Delete @Html.DisplayFor(model => model.Name) from Machine:</h3>
 <ul>
   @foreach (var join in Model.JoinEntities)
   {
@@ -50,3 +50,4 @@ else
 <button class="btn">@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</button>
 <button class="btn">@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId })</button>
 <button class="btn">@Html.ActionLink("Add Engineer to Machine", "AddMachine", new { id = Model.EngineerId })</button>
+<button class="btn">@Html.ActionLink("Add Engineer to Location", "AddLocation", new { id = Model.EngineerId })</button>

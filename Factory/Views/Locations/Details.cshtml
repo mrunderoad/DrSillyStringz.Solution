@@ -25,8 +25,27 @@ else
     }
   </ul>
 }
+@if (@Model.JoinEntities1.Count == 0)
+{
+  <h3>No Engineers to Remove from this Location</h3>
+}
+else
+{
+<h3>Delete Engineer from @Html.DisplayFor(model => model.Name)</h3>
+<ul>
+  <div class="row">
+  @foreach (var join in Model.JoinEntities1)
+  {
+    @using (Html.BeginForm("DeleteEngineer", "Locations"))
+    {
+      @Html.Hidden("joinId", @join.EngineerLocationId)
+      <button class="btn" type="submit">@join.Engineer.Name</button>
+    }
+  }
+  </div>
+</ul>
+}
 <hr />
-<h3>Machines at @Html.DisplayFor(model => model.Name):</h3>
 @if (@Model.JoinEntities2.Count == 0)
 {
   <h3>Currently no Machines at @Html.DisplayFor(model => model.Name).</h3>
@@ -40,6 +59,26 @@ else
       <li>@Html.ActionLink(@MachineLocation.Machine.Name, "Details", "Machiness", new { id = MachineLocation.Machine.MachineId })</li>
     }
   </ul>
+}
+@if (@Model.JoinEntities1.Count == 0)
+{
+  <h3>No Engineers to Remove from this Location</h3>
+}
+else
+{
+<h3>Delete Machine from @Html.DisplayFor(model => model.Name)</h3>
+<ul>
+  <div class="row">
+  @foreach (var join in Model.JoinEntities2)
+  {
+    @using (Html.BeginForm("DeleteMachine", "Locations"))
+    {
+      @Html.Hidden("joinId", @join.MachineLocationId)
+      <button class="btn" type="submit">@join.Machine.Name</button>
+    }
+  }
+  </div>
+</ul>
 }
 <hr />
 <button class="btn">@Html.ActionLink("Edit Location", "Edit", new { id = Model.LocationId })</button>
