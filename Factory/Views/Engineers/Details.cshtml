@@ -10,6 +10,8 @@
 <hr />
 <h3>Name:</h3>
 <p>@Html.DisplayFor(model => model.Name)</p>
+<h3>License Renewal Date:</h3>
+<p>@Html.DisplayFor(model => model.Date.Month)/@Html.DisplayFor(model => model.Date.Day)/@Html.DisplayFor(model => model.Date.Year)</p>
 <hr />
 @if (@Model.JoinEntities.Count == 0)
 {

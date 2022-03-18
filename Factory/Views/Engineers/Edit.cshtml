@@ -15,6 +15,8 @@
   @Html.Label("Edit Engineer Name:")
   @Html.EditorFor(model => model.Name)
   <br>
+  @Html.Label("Edit Engineer License Renewal Date:")
+  @Html.EditorFor(model => model.Date, new { type = "date" })
   <input type="submit" value="Update Engineer" />
 }
 <hr />
